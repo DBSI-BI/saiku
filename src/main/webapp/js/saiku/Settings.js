@@ -65,6 +65,9 @@ var Settings = {
     DEFAULT_VIEW_STATE: 'view', // could be 'edit' as well
     DEMO: false,
     TELEMETRY_SERVER: 'http://telemetry.analytical-labs.com:7000',
+
+    // Modify by huanqiang 2017-05-22 18:20:08.
+    // LOCALSTORAGE_EXPIRATION: 1,
     LOCALSTORAGE_EXPIRATION: 10 * 60 * 60 * 1000 /* 10 hours, in ms */,
     UPGRADE: true,
     EVALUATION_PANEL_LOGIN: true,
