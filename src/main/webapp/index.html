@@ -32,9 +32,14 @@
     <link rel="stylesheet" href="css/saiku/src/saiku.table.css" type="text/css">
     <link rel="stylesheet" href="css/saiku/src/saiku.dropzone.css" type="text/css">
 
+    <!-- Modify by huanqiang 2017-05-22 16:33:13. -->
+    <link rel="stylesheet" href="css/saiku/src/custom.css">
+
     <!-- CHOSEN CSS PLACEHOLDER-->
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Modify by huanqiang 2017-05-22 16:24:38. -->
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+    <link rel="icon" type="image/png" href="edu_logo.png" />
 
 </head>
 <body>
@@ -237,18 +242,19 @@
 <script type="text/x-jquery-tmpl" id="template-toolbar">
             <ul>
                     <li><a id='new_query' href='#new_query' title='New query' class='new_tab i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
+                    <!--<li class='separator'>&nbsp;</li>-->
                     <li><a id='open_query' href='#open_query' title='Open query' class='open_query i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
-                    <li><a id='logout' href='#logout' title='Logout' class='logout i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
-               
-<!-- 隐藏一些 菜单 -->
-				<!-- <li><a id='about' href='#about' title='About' class='about i18n sprite'></a></li> 
-                    <li class='separator'>&nbsp;</li>
-                    <li><a id='help_icon' href='#help' target='_blank' title='Help' class='help i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
-					<li><a id='issue_tracker' href='#issue_tracker' title='Issue Tracker' class='bug i18n sprite'></a></li> -->
+                    <!--<li class='separator'>&nbsp;</li>-->
+
+                    <!-- 隐藏一些 菜单 -->
+
+                    <!--<li><a id='logout' href='#logout' title='Logout' class='logout i18n sprite'></a></li>-->
+                    <!--<li class='separator'>&nbsp;</li>-->
+				    <!--<li><a id='about' href='#about' title='About' class='about i18n sprite'></a></li> -->
+                    <!--<li class='separator'>&nbsp;</li>-->
+                    <!--<li><a id='help_icon' href='#help' target='_blank' title='Help' class='help i18n sprite'></a></li>-->
+                    <!--<li class='separator'>&nbsp;</li>-->
+					<!--<li><a id='issue_tracker' href='#issue_tracker' title='Issue Tracker' class='bug i18n sprite'></a></li>-->
             </ul>
 
             <%= data.logo %>

@@ -236,10 +236,12 @@ textarea, select {
     -webkit-border-radius: 2px;
 }
 #toolbar ul li a.new_tab {
-    background-position: -1554px 5px;
+    background: url(../../../images/src/main_toolbar_doc_plus.png) no-repeat center;
+    /* background-position: -1554px 5px; */
 }
 #toolbar ul li a.open_query {
-    background-position: -1628px 5px;
+    background: url(../../../images/src/main_toolbar_folder.png) no-repeat center;
+    /* background-position: -1628px 5px; */
 }
 #toolbar ul li a.schema_designer {
     background: url(../../../images/src/main_toolbar_schema_designer.png) no-repeat center;
@@ -1548,8 +1550,10 @@ a.disabled_toolbar:hover {
     background-color: #E0E0E0;
     padding: 7px !important;
 }
+/* Modify by huanqiang 2017-05-22 16:24:55. 修改了 toolbar 图标 */
 .workspace_toolbar .open {
-    background-position: -1040px 7px;
+    background-image: url('../../../images/src/folder.png');
+    background-position: 7px 7px;
 }
 
 .workspace_toolbar .edit_folder {
@@ -1567,33 +1571,39 @@ a.disabled_toolbar:hover {
 }
 
 .workspace_toolbar .delete {
-     background-position: -521px 7px;
+    background-position: -521px 7px;
 }
 .workspace_toolbar .save {
-    background-position: -485px -90px;
+    background-image: url('../../../images/src/save.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .new {
     background-image: url('../../../images/src/page_white.png');
     background-position: 7px 7px;
 }
 .workspace_toolbar .run {
-    background-position: -123px -90px;
+    background-image: url('../../../images/src/run.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .auto {
+    background-image: url('../../../images/src/auto.png');
     background-position: 7px 7px;
 }
 .workspace_toolbar .non_empty {
-    background-position: -1914px 7px;
+    background-image: url('../../../images/src/non.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .group_parents {
     background-image: url('../../../images/src/hide_parents.png');
     background-position: 7px 7px;
 }
 .workspace_toolbar .swap_axis {
-    background-position: -551px -90px;
+    background-image: url('../../../images/src/swap.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .mdx {
-    background-position: -1848px 7px;
+    background-image: url('../../../images/src/mdx.png');
+    background-position: 7px 7px;
 }
 
 .workspace_toolbar .explain_query {
@@ -1602,10 +1612,12 @@ a.disabled_toolbar:hover {
 }
 
 .workspace_toolbar .export_csv {
-    background-position: -455px 7px;
+    background-image: url('../../../images/src/csv.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .export_xls {
-    background-position: -847px 7px;
+    background-image: url('../../../images/src/excel.png');
+    background-position: 7px 7px;
 }
 
 .workspace_toolbar .export_pdf {
@@ -1620,7 +1632,8 @@ a.disabled_toolbar:hover {
 	background-position: -1635px -90px;
 }
 .workspace_toolbar .drillthrough {
-    background-position: -781px 7px;
+    background-image: url('../../../images/src/drillthrough.png');
+    background-position: 7px 7px;
 }
 .workspace_toolbar .drillthrough_export {
     background-image: url('../../../images/src/export_drillthrough.png');

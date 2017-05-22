@@ -1,0 +1,27 @@
+.saiku_logo{
+	background-image: url('../../../images/self/self_logo.png');
+}
+#logo a{
+	width: 360px;
+	background:url('../../../images/self/self_title.png') no-repeat 50% 50%;
+}
+#toolbar{
+	background:url('../../../images/self/self_bg.png') no-repeat;
+	background-size: 100% 100%;
+}
+.new_tab.sprite,
+.open_query.sprite,
+.logout.sprite{
+	background:url('../../../images/sprite.png') no-repeat;
+}
+#toolbar ul li a.admin{
+	background:url(../../../images/src/admin1.png) no-repeat center;
+}
+#toolbar ul li a:hover {
+	background-color: #9FA7B3;
+    border: 1px solid #CCC;
+    padding: 4px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}

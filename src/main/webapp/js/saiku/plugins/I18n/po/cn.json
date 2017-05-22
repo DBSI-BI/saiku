@@ -109,5 +109,17 @@
   "Remove permission": "移除权限",
   "Keep this file private to me": "保留这个权限",
   "Currently private to:": "当前属于",
-  "User Management": "用户管理"
+  "User Management": "用户管理",
+  "ROWS": "行",
+  "COLUMNS": "列",
+  "FILTER": "过滤",
+  "Limit": "限制",
+  "Sort": "排序",
+  "Grand totals": "总计",
+  "None": "无",
+  "Sum": "总和",
+  "Min": "最小值",
+  "Max": "最大值",
+  "Avg": "平均值"
+
 }
