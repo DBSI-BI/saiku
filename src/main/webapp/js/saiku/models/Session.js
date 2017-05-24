@@ -71,8 +71,6 @@ var Session = Backbone.Model.extend({
 		Saiku.ui.unblock();
 		this.form = new SessionErrorModal({ issue: response.responseText });
 		this.form.render().open();
-
-
 	},
 
     load_session: function() {

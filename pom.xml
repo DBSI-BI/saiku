@@ -33,17 +33,17 @@
         <serenity.version>1.0.58</serenity.version>
         <jbehave.version>3.9.3</jbehave.version>
     </properties>
-    <pluginRepositories>
-        <!--add by liuyg <pluginRepository> <id>Analytical Labs Plugin Repo</id>
-            <name>Analytical Labs Repo-releases</name> <url>http://repo.meteorite.bi/content/repositories/alabs-release-local/</url>
-            </pluginRepository> -->
-        <pluginRepository>
-            <id>mine</id>
-            <name>public Releases</name>
-            <layout>default</layout>
-            <url>http://nexus.liuyingguang.cn:8081/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
+    <!--<pluginRepositories>-->
+        <!--&lt;!&ndash;add by liuyg <pluginRepository> <id>Analytical Labs Plugin Repo</id>-->
+            <!--<name>Analytical Labs Repo-releases</name> <url>http://repo.meteorite.bi/content/repositories/alabs-release-local/</url>-->
+            <!--</pluginRepository> &ndash;&gt;-->
+        <!--<pluginRepository>-->
+            <!--<id>mine</id>-->
+            <!--<name>public Releases</name>-->
+            <!--<layout>default</layout>-->
+            <!--<url>http://nexus.liuyingguang.cn:8081/content/groups/public/</url>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 
     <repositories>
         <repository>

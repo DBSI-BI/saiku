@@ -4,70 +4,52 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
 
-    <display-name>saiku</display-name>
+    <display-name>saiku-edu</display-name>
 
     <context-param>
         <param-name>encoding</param-name>
         <param-value>UTF-8</param-value>
     </context-param>
-    <!--Modify by huanqiang 2017-05-22 11:07:22.-->
     <context-param>
-    <param-name>db.url</param-name>
-    <param-value>jdbc:mysql://10.1.18.155:3306/saiku_test?useUnicode=true&amp;characterEncoding=UTF-8</param-value>
-</context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:h2:../webapps/saiku/data/saiku;MODE=MySQL</param-value>
+    </context-param>
     <context-param>
         <param-name>db.user</param-name>
-        <param-value>root</param-value>
+        <param-value>sa</param-value>
     </context-param>
     <context-param>
         <param-name>db.password</param-name>
-        <param-value>123456</param-value>
+        <param-value></param-value>
     </context-param>
     <context-param>
         <param-name>db.encryptpassword</param-name>
         <param-value>true</param-value>
     </context-param>
-
     <!--<context-param>-->
-        <!--<param-name>db.url</param-name>-->
-        <!--<param-value>jdbc:h2:../../data/saiku;MODE=MySQL</param-value>-->
+        <!--<param-name>foodmart.url</param-name>-->
+        <!--<param-value>jdbc:h2:../../data/foodmart;MODE=MySQL</param-value>-->
     <!--</context-param>-->
     <!--<context-param>-->
-        <!--<param-name>db.user</param-name>-->
+        <!--<param-name>foodmart.user</param-name>-->
         <!--<param-value>sa</param-value>-->
     <!--</context-param>-->
     <!--<context-param>-->
-        <!--<param-name>db.password</param-name>-->
+        <!--<param-name>foodmart.password</param-name>-->
         <!--<param-value></param-value>-->
     <!--</context-param>-->
     <!--<context-param>-->
-        <!--<param-name>db.encryptpassword</param-name>-->
-        <!--<param-value>true</param-value>-->
+        <!--<param-name>earthquakes.url</param-name>-->
+        <!--<param-value>jdbc:h2:../../data/earthquakes;MODE=MySQL</param-value>-->
     <!--</context-param>-->
-    <context-param>
-        <param-name>foodmart.url</param-name>
-        <param-value>jdbc:h2:../../data/foodmart;MODE=MySQL</param-value>
-    </context-param>
-    <context-param>
-        <param-name>foodmart.user</param-name>
-        <param-value>sa</param-value>
-    </context-param>
-    <context-param>
-        <param-name>foodmart.password</param-name>
-        <param-value></param-value>
-    </context-param>
-    <context-param>
-        <param-name>earthquakes.url</param-name>
-        <param-value>jdbc:h2:../../data/earthquakes;MODE=MySQL</param-value>
-    </context-param>
-    <context-param>
-        <param-name>earthquakes.user</param-name>
-        <param-value>sa</param-value>
-    </context-param>
-    <context-param>
-        <param-name>earthquakes.password</param-name>
-        <param-value></param-value>
-    </context-param>
+    <!--<context-param>-->
+        <!--<param-name>earthquakes.user</param-name>-->
+        <!--<param-value>sa</param-value>-->
+    <!--</context-param>-->
+    <!--<context-param>-->
+        <!--<param-name>earthquakes.password</param-name>-->
+        <!--<param-value></param-value>-->
+    <!--</context-param>-->
     <context-param>
         <param-name>db.tcpServer</param-name>
         <param-value>-tcpAllowOthers</param-value>
@@ -282,9 +264,7 @@
 
         <init-param>
             <param-name>OlapDriverConnectionString</param-name>
-            <param-value>
-                jdbc:ld://olap4ld;Catalog=LdCatalog;JdbcDrivers=com.mysql.jdbc.Driver;Server=http://;Database=EMBEDDEDSESAME;Datastructuredefinitions=;Datasets=;
-            </param-value>
+            <param-value>jdbc:ld://olap4ld;Catalog=LdCatalog;JdbcDrivers=com.mysql.jdbc.Driver;Server=http://;Database=EMBEDDEDSESAME;Datastructuredefinitions=;Datasets=;</param-value>
         </init-param>
 
         <init-param>
