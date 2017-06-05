@@ -52,7 +52,7 @@ var CalculatedMemberModal = Modal.extend({
     template_modal: _.template(
         '<div class="cms-container-group">' +
             '<div class="calculated-measure-group">' +
-                '<h4 class="i18n">Calculated Measures:</h4>' +
+                '<h4 class="i18n">计算指标:</h4>' +/*Calculated Measures*/
                 '<div class="cms-box">' +
                     '<table class="cms-list measures-list">' +
                         '<%= tplCalculatedMeasures %>' +
@@ -60,7 +60,7 @@ var CalculatedMemberModal = Modal.extend({
                 '</div>' +
             '</div>' +
             '<div class="calculated-member-group">' +
-                '<h4 class="i18n">Calculated Members:</h4>' +
+                '<h4 class="i18n">计算成员组:</h4>' +/*Calculated Members*/
                 '<div class="cms-box">' +
                     '<table class="cms-list members-list">' +
                         '<%= tplCalculatedMembers %>' +
@@ -70,14 +70,14 @@ var CalculatedMemberModal = Modal.extend({
         '</div>' +
         '<div class="cms-container-form">' +
             '<form class="form-group-inline" data-action="cad">' +
-                '<div class="form-group"><label for="cms-name" class="i18n">Name:</label>' +
+                '<div class="form-group"><label for="cms-name" class="i18n">名字:</label>' +
                 '<input type="text" class="form-control" id="cms-name" autofocus></div>' +
                 '<div class="cms-measure form-inline" style="padding-bottom:10px;">' +
-                '<label for="cms-measure" class="i18n">Insert Member:</label>' +
+                '<label for="cms-measure" class="i18n">插入成员:</label>' +/*Insert Member*/
                 ' <input type="button" class="form-control btn-primary btn btn-select-member"' +
-                ' value="Select Member" title="Insert a member into the formula editor "   ' +
+                ' value="选择成员" title="Insert a member into the formula editor "   ' +
                 'id="insertmember"> </input> </div>' +
-                '<label for="<%= idEditor %>" class="i18n">Formula:</label>' +
+                '<label for="<%= idEditor %>" class="i18n">公式:</label>' +/*Formula*/
                 '<div class="formula-editor" style="padding-bottom:10px" id="<%= idEditor %>"></div>' +
                 '<div class="btn-groups">' +
 
@@ -100,22 +100,22 @@ var CalculatedMemberModal = Modal.extend({
                     '<a class="form_button btn btn-default btn-math minimal_padding i18n" href="#add_math_operator_formula"' +
                     ' data-math="not">&nbsp;not&nbsp;</a><br/>' +
                     '<div class="form-inline"><select class="cms-functionlist form-control"><option' +
-                    ' value="">---Insert MDX Function---' +
+                    ' value="">---插入 MDX 方法---' +
                     '</select>&nbsp; <a href="" class="cms-doclink" target="_blank" style="display:' +
                     ' none;">Documentation</a><br/></div>'+
                     '</div>' +
 				    '<div class="cms-function">' +
-					'<label for="cms-function" class="i18n">Functions:</label>' +
+					'<label for="cms-function" class="i18n">功能:</label>' +/*Functions Predefined Calculations*/
 					' <input type="button" class="form_button btn btn-primary growthBtn"#'+
-                    ' value="Predefined Calculations"  ' +
+                    ' value="预定义计算"  ' +
 					'         title="Calculate difference. Good to calculate previous period growth "   id="growthBtn" >  </input> ' +
 					' <input type="button" class="form_button btn btn-primary formatBtn"' +
-                    ' value="Format %" id="formatBtn"  ' +
+                    ' value="格式 %" id="formatBtn"  ' +
 					'title="Post-process step: format this view as percentage of rows, columns or grand total. " />' +
 				'</div><br/>' +
-                '<div style="padding-bottom:10px;"><label for="cms-dimension" class="i18n">Dimension:</label>' +
+                '<div style="padding-bottom:10px;"><label for="cms-dimension" class="i18n">维度:</label>' +/*Dimension*/
                 '<select id="cms-dimension" class="form-control" style="width:365px">' +
-                    '<option class="i18n" value="" selected>-- Select an existing dimension --</option>' +
+                    '<option class="i18n" value="" selected>-- 选择一个已存在的维度 --</option>' +
                     '<% if (measures.length > 0) { %>' +
                         '<optgroup label="<%= dataMeasures.name %>">' +
                             '<option value="<%= dataMeasures.uniqueName %>" data-type="calcmeasure"><%= dataMeasures.name %></option>' +
@@ -131,16 +131,16 @@ var CalculatedMemberModal = Modal.extend({
                 '</select></div>' +
                 '<div class="btn-groups" style="padding-bottom:10px">' +
                     '<a class="form_button btn btn-primary btn-parent-member" href="#add_math_operator_formula"' +
-                    ' disabled>&nbsp;Parent Member Selector&nbsp;</a>' +
+                    ' disabled>&nbsp;父成员选择&nbsp;</a>' +/*Parent Member Selector*/
                     '<a class="form_button btn btn-default btn-clear-parent" href="#add_math_operator_formula"' +
-                    ' disabled>&nbsp;Clear Parent Member&nbsp;</a>' +
+                    ' disabled>&nbsp;清除父成员&nbsp;</a>' +/*Clear Parent Member*/
                 '</div>' +
-                '<label class="i18n" for="cms-pmember">Parent Member:</label><input' +
+                '<label class="i18n" for="cms-pmember">父成员:</label><input' +
                 ' class="form-control" readonly="true" type="text"' +
                 ' id="cms-pmember"><br/>'+
-                '<div style="padding-bottom:10px;"><label for="cms-format" class="i18n">Format:</label>' +
+                '<div style="padding-bottom:10px;"><label for="cms-format" class="i18n">格式:</label>' +
                 '<select id="cms-format" class="form-control" style="width:365px">' +
-                    '<option class="i18n" value="" selected>-- Select a format --</option>' +
+                    '<option class="i18n" value="" selected>-- 选择一种格式 --</option>' +
                     '<option class="i18n" value="custom">Custom</option>' +
                     '<option class="i18n" value="#,##0.00">#,##0.00 Decimal</option>' +
                     '<option class="i18n" value="#,###">#,### Integer</option>' +
@@ -169,11 +169,11 @@ var CalculatedMemberModal = Modal.extend({
      * @private
      */
     buttons: [
-        { text: 'Add', method: 'save' },
-        { text: 'Update', method: 'save' },
-        { text: 'New', method: 'new' },
-        { text: 'Cancel', method: 'close' },
-        { text: 'Help', method: 'help'}
+        { text: '添加', method: 'save' },
+        { text: '更新', method: 'save' },
+        { text: '新建', method: 'new' },
+        { text: '取消', method: 'close' },
+        { text: '帮助', method: 'help'}
     ],
 
     /**
@@ -212,7 +212,7 @@ var CalculatedMemberModal = Modal.extend({
         // Initialize properties
         _.extend(this, args);
         this.workspace = args.workspace;
-        this.options.title = 'Calculated Member';
+        this.options.title = '计算成员';//Calculate Member
         this.id = _.uniqueId('cms-formula-');
 
         var self = this;
@@ -337,10 +337,10 @@ var CalculatedMemberModal = Modal.extend({
         }
         else {
             if (type === 'calcmeasure') {
-                $tpl = '<p class="msg-no-cms i18n">No calculated measures created</p>';
+                $tpl = '<p class="msg-no-cms i18n">没有创建计算指标</p>';/*No calculated measures created*/
             }
             else {
-                $tpl = '<p class="msg-no-cms i18n">No calculated members created</p>';    
+                $tpl = '<p class="msg-no-cms i18n">没有创建计算成员</p>'; /*No calculated members created*/
             }
         }
 
@@ -433,7 +433,7 @@ var CalculatedMemberModal = Modal.extend({
             okay: this.del_cms,
             okayobj: this
         })).render().open();
-        this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('Calculated Member');
+        this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('计算成员');/*？Calculated Member*/
         Saiku.i18n.translate();
     },
 
@@ -459,10 +459,10 @@ var CalculatedMemberModal = Modal.extend({
         args.new();
         if (!args.check_len_cms(args.$delcms.data('type'))) {
             if (args.$delcms.data('type') === 'calcmeasure') {
-                args.$el.find('.measures-list').append('<p class="msg-no-cms i18n">No calculated measures created</p>');
+                args.$el.find('.measures-list').append('<p class="msg-no-cms i18n">没有创建计算指标</p>');/*No calculated measures created*/
             }
             else {
-                args.$el.find('.members-list').append('<p class="msg-no-cms i18n">No calculated members created</p>');
+                args.$el.find('.members-list').append('<p class="msg-no-cms i18n">没有创建计算成员</p>');/*No calculated members created*/
             }
         }
 
@@ -792,13 +792,13 @@ var CalculatedMemberModal = Modal.extend({
         }
 
         if (typeof name === 'undefined' || name === '' || !name) {
-            alertMsg += 'You have to enter a name for the member! ';
+            alertMsg += '你必须给成员命名！';//You have to enter a name for the member!
         }
         if (typeof formula === 'undefined' || formula === '' || !formula) {
-            alertMsg += 'You have to enter a MDX formula for the calculated member! ';
+            alertMsg += '你必须给计算成员输入MDX公式！ ';//You have to enter a MDX formula for the calculated member!
         }
         if (typeof dimension.val === 'undefined' || dimension.val === '' || !dimension.val) {
-            alertMsg += 'You have to choose a dimension for the calculated member! ';
+            alertMsg += '你必须给计算成员选择一个维度！';//You have to choose a dimension for the calculated member
         }
         if (alertMsg !== '') {
             alert(alertMsg);

@@ -49,7 +49,7 @@ var ParentMemberSelectorModal = Modal.extend({
             '</div>' +
             '<% if (Settings.PARENT_MEMBER_DIMENSION||this.select_type!=="parent-member-selector") { %>' +
             '<div class="group-elements">' +
-            '<label for="dimension" class="i18n">Dimension:</label>' +
+            '<label for="dimension" class="i18n">维度:</label>' +
             '<select id="dimension" class="form-control">' +
             '<optgroup label="Measures">' +
             '<option value="[Measures].[Measures]" data-dimension="Measures" data-type="calcmember">Measures</option>' +
@@ -65,7 +65,7 @@ var ParentMemberSelectorModal = Modal.extend({
             '</div>' +
             '<% } %>' +
             '<div class="group-elements">' +
-            '<label><span class="i18n">Selected Level:</span> <span class="selected-level"></span></label>' +
+            '<label><span class="i18n">所选等级:</span> <span class="selected-level"></span></label>' +/*Selected Level*/
             '</div>' +
             '<div class="group-elements">' +
             '<ul class="members-list">' +
@@ -73,8 +73,8 @@ var ParentMemberSelectorModal = Modal.extend({
             '<ul>' +
             '</div>' +
             '<div class="group-elements">' +
-            '<input type="search" class="form-control" id="auto-filter" results="5" placeholder="Autocomplete Filter">' +
-            '</div>' +
+            '<input type="search" class="form-control" id="auto-filter" results="5" placeholder="自动过滤">' +
+            '</div>' +/*Autocomplete Filter*/
             '</form>'
         ),
 
@@ -86,9 +86,9 @@ var ParentMemberSelectorModal = Modal.extend({
      * @private
      */
     buttons: [
-        { text: 'Add',    method: 'save' },
-        { text: 'Clear',  method: 'clear' },
-        { text: 'Cancel', method: 'close' }
+        { text: '添加',    method: 'save' },
+        { text: '清除',  method: 'clear' },
+        { text: '取消', method: 'close' }
     ],
 
     /**
@@ -119,7 +119,7 @@ var ParentMemberSelectorModal = Modal.extend({
         // Initialize properties
         _.extend(this, args);
         this.workspace = args.workspace;
-        this.options.title = 'Member Selector';
+        this.options.title = '选择成员';
         if(args.select_type!==undefined) {
             this.select_type = args.select_type;
         }
@@ -548,7 +548,7 @@ var ParentMemberSelectorModal = Modal.extend({
         var alertMsg = '';
 
         if (typeof this.uniqueName === 'undefined' || _.isEmpty(this.uniqueName)) {
-            alertMsg += 'You have to choose a member for the calculated member!';
+            alertMsg += '您必须为计算选择一个成员!';
         }
         if (alertMsg !== '') {
             alert(alertMsg);

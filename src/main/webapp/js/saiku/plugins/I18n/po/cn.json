@@ -122,6 +122,24 @@
   "Max": "最大值",
   "Avg": "平均值",
   "Repository": "仓库",
-  "homes": "用户组"
-
+  "homes": "用户组",
+  "Custom": "方式",
+  "Columns | Measures": "列|指标",
+  "Measures | Columns": "指标|列",
+  "Rows | Measures": "行|指标",
+  "Measures | Rows": "指标|行",
+  "Reset Default": "重置",
+  "Selections for":"选择",
+  "Available members":"可选成员",
+  "Used members":"已选成员",
+  "Include":"包括",
+  "Exclude":"不包括",
+  "Show Unique Names":"显示唯一的名称",
+  "Use Result":"使用结果",
+  "Sub totals":"分类汇总",
+  "Display Limit":"显示限制",
+  "Filter Limit":"过滤限制",
+  "Parameter Name":"参数名称",
+  "Pre-Filter on Server":"预先过滤服务器",
+  "Clear Filter":"清除过滤器"
 }

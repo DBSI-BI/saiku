@@ -369,7 +369,7 @@ var WorkspaceDropZone = Backbone.View.extend({
 			"TOP_ROWS": {name: "Measures | Rows", i18n: true },
 			"sep2": "---------",
 			"reset": {name: "Reset Default", i18n: true },
-			"cancel": {name: "Cancel", i18n: true }
+			"cancel": {name: "取消", i18n: true }
 		};
 		$.each(menuitems, function(key, item){
 			recursive_menu_translate(item, Saiku.i18n.po_file);
@@ -511,26 +511,26 @@ var WorkspaceDropZone = Backbone.View.extend({
                 var citems = {
                         "filter" : {name: "Filter", i18n: true, items:
                          {
-                                "customfilter": {name: "Custom...", i18n: true },
-                                "clearfilter": {name: "Clear Filter", i18n: true }
+                                "customfilter": {name: "自定义过滤...", i18n: true },
+                                "clearfilter": {name: "清空过滤", i18n: true }
                          }},
                         "limit" : {name: "Limit", i18n: true, items:
                         {
-                                "TopCount###SEPARATOR###10": {name: "Top 10", i18n: true },
-                                "BottomCount###SEPARATOR###10": {name: "Bottom 10", i18n: true },
+                                "TopCount###SEPARATOR###10": {name: "前10名", i18n: true },
+                                "BottomCount###SEPARATOR###10": {name: "后10名", i18n: true },
                                 "TopCountQuick" : { name: "Top 10 by...", i18n: true, items: addFun(items, "TopCount") },
                                 "BottomCountQuick" : { name: "Bottom 10 by...", i18n: true, items: addFun(items, "BottomCount") },
-                                "customtop" : {name: "Custom Limit...", i18n: true },
-                                "clearlimit" : {name: "Clear Limit", i18n: true }
+                                "customtop" : {name: "自定义限制...", i18n: true },
+                                "clearlimit" : {name: "清空限制", i18n: true }
                          }},
                         "sort" : {name: "Sort", i18n: true, items:
                         {
-                            "ASCQuick": {name: "Ascending" , i18n: true, items: addFun(items, "ASC") },
-                            "DESCQuick": {name: "Descending", i18n: true, items: addFun(items, "DESC")},
-                            "BASCQuick": {name: "Ascending (Breaking Hierarchy)", i18n: true, items: addFun(items, "BASC")},
-                            "BDESCQuick": {name: "Descending (Breaking Hierarchy)", i18n: true, items: addFun(items, "BDESC") },
-                            "customsort" : { name: "Custom...", i18n: true },
-                            "clearsort" : {name: "Clear Sort", i18n: true }
+                            "ASCQuick": {name: "升序" , i18n: true, items: addFun(items, "ASC") },
+                            "DESCQuick": {name: "降序", i18n: true, items: addFun(items, "DESC")},
+                            "BASCQuick": {name: "升序 (打破层次)", i18n: true, items: addFun(items, "BASC")},
+                            "BDESCQuick": {name: "降序 (打破层次)", i18n: true, items: addFun(items, "BDESC") },
+                            "customsort" : { name: "自定义排序...", i18n: true },
+                            "clearsort" : {name: "清空排序", i18n: true }
                         }},
                         "grand_totals" : {name: "Grand totals", i18n: true, items:
                         {
@@ -555,7 +555,7 @@ var WorkspaceDropZone = Backbone.View.extend({
                         }
                     }
                 } else {
-                    totalItems.show_totals_not.name = "<b>" + totalItems.show_totals_not.name + "</b";
+                    totalItems.show_totals_not.name = "<b>" + totalItems.show_totals_not.name + "</b>";
                 }
 
                 items["10"] = {

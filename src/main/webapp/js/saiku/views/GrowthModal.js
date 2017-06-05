@@ -39,16 +39,16 @@ var GrowthModal = Modal.extend({
 	},
 
 	buttons: [
-		{text: "OK", method: "save"},
-		{text: "Cancel", method: "close"}
+		{text: "确定", method: "save"},
+		{text: "取消", method: "close"}
 	],
 
 	addMeasureTemplate: _.template(
-		"<span> Calculate difference of a measure over dimension members </span>" +
+		"<span> 计算维度成员之间的指标差异 </span>" +/*Calculate difference of a measure over dimension members*/
 		"<form id='measureGrowthForm'>" +
 		"<table border='0px'>" +
-		"<tr><td class='col0 i18n'>Name:</td>" +
-		"<td class='col1'><input type='text' class='form-control measure_name' value='Measure Name'></input></td></tr>" +
+		"<tr><td class='col0 i18n'>名字:</td>" +
+		"<td class='col1'><input type='text' class='form-control measure_name' value='设定方法名'></input></td></tr>" +
 
 		'<input type="checkbox" name="asPercent" value="asPercent" id="asPercentCheckbox"> Relative %? <br>' +
 		'<% if(dimensions.length<2){ %>'+
@@ -58,31 +58,31 @@ var GrowthModal = Modal.extend({
 		'<% }%>'+
 		'<input type="checkbox" name="asPercentAround100" value="asPercentAround100" id="asPercentAround100Checkbox"> Relative around 100%? <br>' +
 
-		"<tr><td class='col0 i18n'>Measure:</td>" +
+		"<tr><td class='col0 i18n'>指标:</td>" +
 		"<td class='col1'>" +
 		"<select id='Measures' class='form-control' name='MeasuresId' title='Select the measure from which the difference should be calculated'> " +
-		"    <option value='' selected='selected'>--select an existing measure--</option> " +
+		"    <option value='' selected='selected'>--选择一个已存在的指标--</option> " +
 		"    <% _(measures).each(function(m) { %> " +
 		"      <option value='<%= m.uniqueName %>'><%= m.name %></option> " +
 		"    <% }); %> " +
 		"</select> " +
 		"</td></tr>" +
 
-		"<tr><td class='col0 i18n'>Dimension:</td>" +
+		"<tr><td class='col0 i18n'>维度:</td>" +
 		"<td class='col1'>" +
 		"<select id='Dimensions' name='DimensionsId' class='form-control' title='This dimension attribute is used to calculate the difference of the selected measure. E.g. Calculate the growth over the years.'> " +
-		"    <option value='' selected='selected'>--select a dimension from your query--</option> " +
+		"    <option value='' selected='selected'>--从查询中选择维度--</option> " +/*select a dimension from your query*/
 		"    <% _(dimensions).each(function(dim) { %> " +
 		"      <option value='<%= dim %>'><%= dim %></option> " +
 		"    <% }); %> " +
 		"</select> " +
 		"</td></tr>" +
 
-		"<tr><td class='col0 i18n'>Format:</td>" +
+		"<tr><td class='col0 i18n'>格式:</td>" +
 		"<td class='col1'><input class='measure_format' type='text' class='form-control' value='#,##0.00'></input></td></tr>" +
 
-		"<tr><td class='col0 i18n'>Formula:</td>" +
-		"<td class='col1'><textarea class='measureFormula auto-hint' class='form-control' placeholder='This field will automatically be constructed by selecting a measure and growth dimension from the dropdown lists above...'>" +
+		"<tr><td class='col0 i18n'>公式:</td>" +
+		"<td class='col1'><textarea class='measureFormula auto-hint' class='form-control' placeholder='根据上面的下拉列表中选择一个指标和增长维度，自动构建该字段'>" +/*This field will automatically be constructed by selecting a measure and growth dimension from the dropdown lists above...*/
 		"</textarea></td></tr>" +
 
 		"</table></form>"

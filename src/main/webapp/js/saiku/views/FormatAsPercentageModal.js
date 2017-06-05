@@ -34,20 +34,20 @@ var FormatAsPercentageModal = Modal.extend({
 	},
 
 	buttons: [
-		{text: "Cancel", method: "close"},
-		{text: "Help", method: "help"}
+		{text: "取消", method: "close"},
+		{text: "帮助", method: "help"}
 	],
 
 	addMeasureTemplate: _.template(
-		"<div class='text'>Name: <input type='text' class='measure_name form-control'></input> </div> " +
-		"<div> <span> Select how to express the measures: </span> </div>" +
+		"<div class='text'>名字: <input type='text' class='measure_name form-control'></input> </div> " +
+		"<div> <span> 选择如何表达指标: </span> </div>" +
 		"<ol style='list-style-type: none;'> " +
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button btn btn-primary formatButton' id='formatOverRows'> Format as % of rows </button></li>" +
+		"    <button class='form_button btn btn-primary formatButton' id='formatOverRows'> 格式为行的百分比 </button></li>" +/*Format as % of columns*/
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button btn btn-primary formatButton' id='formatOverColumns'> Format as % of columns </button></li>" +
+		"    <button class='form_button btn btn-primary formatButton' id='formatOverColumns'> 格式为列的百分比 </button></li>" +
 		"<li style='padding-bottom: 10px; padding-right: 10px; float: inherit;'>     " +
-		"    <button class='form_button formatButton btn btn-primary' id='formatOverTotal'> Format as % of total </button></li>" +
+		"    <button class='form_button formatButton btn btn-primary' id='formatOverTotal'> 格式为占总数的百分比 </button></li>" +
 		"</ol>" +
 		"<span id='userFeedback'> <p> <%= userFeedback %> </p> </span>"
 	),
@@ -68,7 +68,7 @@ var FormatAsPercentageModal = Modal.extend({
 
 		_.bindAll(this, "save", "format");
 
-		this.options.title = "Format as percentage";
+		this.options.title = "格式化百分比";//Format as percentage
 
 		// fix event listening in IE < 9
 		if (isIE && isIE < 9) {
@@ -256,7 +256,7 @@ var FormatAsPercentageModal = Modal.extend({
 
 	checkRowsOrColumnsPresent: function (rows, cols) {
 		if ((rows == null || rows == undefined || rows.length == 0) && (cols == null || cols == undefined || cols.length == 0)) {
-			return "You selected no columns or rows, you should probably return.";
+			return "您尚未选择任意行或列.";
 		} else return "";
 	},
 	help: function(){
