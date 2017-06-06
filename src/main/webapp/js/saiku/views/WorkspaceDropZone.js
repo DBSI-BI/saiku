@@ -361,7 +361,7 @@ var WorkspaceDropZone = Backbone.View.extend({
 		}
 		var $target = $(event.target).hasClass('limit') ? $(event.target) : $(event.target).parent();
 		var menuitems = {
-			"HEADER": {name: "Position", disabled:true, i18n: true },
+			"HEADER": {name: "位置", disabled:true, i18n: true },
 			"sep1": "---------",
 			"BOTTOM_COLUMNS": {name: "Columns | Measures", i18n: true },
 			"TOP_COLUMNS": {name: "Measures | Columns", i18n: true },
@@ -518,8 +518,8 @@ var WorkspaceDropZone = Backbone.View.extend({
                         {
                                 "TopCount###SEPARATOR###10": {name: "前10名", i18n: true },
                                 "BottomCount###SEPARATOR###10": {name: "后10名", i18n: true },
-                                "TopCountQuick" : { name: "Top 10 by...", i18n: true, items: addFun(items, "TopCount") },
-                                "BottomCountQuick" : { name: "Bottom 10 by...", i18n: true, items: addFun(items, "BottomCount") },
+                                "TopCountQuick" : { name: "前10名根据...", i18n: true, items: addFun(items, "TopCount") },
+                                "BottomCountQuick" : { name: "后10名根据...", i18n: true, items: addFun(items, "BottomCount") },
                                 "customtop" : {name: "自定义限制...", i18n: true },
                                 "clearlimit" : {name: "清空限制", i18n: true }
                          }},

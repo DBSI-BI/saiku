@@ -29,9 +29,9 @@ var FilterModal = Modal.extend({
     },
 
     buttons: [
-        { text: "OK", method: "save" },
-        { text: "Cancel", method: "close" },
-        { text: "Help", method: "help"}
+        { text: "确定", method: "save" },
+        { text: "取消", method: "close" },
+        { text: "帮助", method: "help"}
     ],
 
     message: "",
@@ -42,10 +42,10 @@ var FilterModal = Modal.extend({
         if (this.expressionType == "Order") {
             c += "<tr><td class='col1'><label>Sort Type</label> <select class='form-control' id='fun'><option>ASC</option><option>BASC</option><option>DESC</option><option>BDESC</option> </select></td></tr>";
         }
-        c += "<tr><td class='col1'>" + this.expressionType + " MDX Expression:</td></tr>" +
+        c += "<tr><td class='col1'>" + this.expressionType + " MDX 表达:</td></tr>" +
              "<tr><td class='col1' style='width:380px'><div class='filter-editor' style='width:380px' id='"+this.id+"'></div></td></tr>" +
              "</table>" +
-            "<a href='#' class='form_button btn btn-default insert-member'>Insert Member</a></div>";
+            "<a href='#' class='form_button btn btn-default insert-member'>插入成员</a></div>";
         return c;
     },
 
@@ -65,7 +65,7 @@ var FilterModal = Modal.extend({
         _.bindAll(this, "save", "expression_text");
 
         _.extend(this.options, {
-            title: "Custom " + this.expressionType + " for " + this.axis
+            title: " 给 " + this.axis+" 自定义 " + this.expressionType
         });
 
         this.message = this.expression_text(this.expressionType);
@@ -98,7 +98,7 @@ var FilterModal = Modal.extend({
 
         var alert_msg = "";
         if (typeof this.expression == "undefined" || !this.expression || this.expression === "") {
-            alert_msg += "You have to enter a MDX expression for the " + this.expressionType + " function! ";
+            alert_msg += "你必须给这个 " + this.expressionType + " 方法添加一个MDX表达式! ";
             alert(alert_msg);
         } else {
             if (self.expressionType == "Order") {
