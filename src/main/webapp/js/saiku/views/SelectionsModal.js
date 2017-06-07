@@ -54,7 +54,7 @@ var SelectionsModal = Modal.extend({
         var self = this;
         _.extend(this, args);
         this.options.title = "<span class='i18n'>Selections for</span> " + this.name;
-        this.message = "Fetching members...";
+        this.message = "获取成员中...";
         this.query = args.workspace.query;
         this.selected_members = [];
         this.available_members = [];
