@@ -177,24 +177,24 @@ var Table = Backbone.View.extend({
             var citems = {
                     "name" : {name: "<b>" + member + "</b>", disabled: true },
                     "sep1": "---------",
-                    "keeponly": {name: "Keep Only", i18n: true, payload: keep_payload }
+                    "keeponly": {name: "只保留", i18n: true, payload: keep_payload }
             };
             if (d != "Measures") {
                 //citems.getchildren = {name: "Show Children", i18n: true, payload: children_payload };
                 citems.fold1key = {
-                        name: "Include Level", i18n: true,
+                        name: "包含等级", i18n: true,
                         items: lvlitems("include-")
                     };
                 citems.fold2key = {
-                        name: "Keep and Include Level", i18n: true,
+                        name: "保持并包含等级", i18n: true,
                         items: lvlitems("keep-")
                     };
                 citems.fold3key = {
-                        name: "Remove Level", i18n: true,
+                        name: "移除等级", i18n: true,
                         items: lvlitems("remove-")
                     };
                 citems.filterlevel = {
-                    name: "Filter Level", i18n: true
+                    name: "过滤等级", i18n: true
                 };
                 /*if (items.showall) {
                     citems.showall  =  { name: "Remove Filters", i18n: true };
@@ -293,7 +293,7 @@ var Table = Backbone.View.extend({
             return;
         }
         this.clearOut();
-        $(this.el).html('Rendering ' + args.data.width + ' columns and ' + args.data.height + ' rows...');
+        $(this.el).html('渲染 ' + args.data.width + ' 列 和 ' + args.data.height + ' 行...');
 
         // Render the table without blocking the UI thread
         _.delay(this.process_data, 2, args.data);

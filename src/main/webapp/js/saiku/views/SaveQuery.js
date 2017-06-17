@@ -32,8 +32,8 @@ var SaveQuery = Modal.extend({
     },
 
     buttons: [
-        { text: "Save", method: "save" },
-        { text: "Cancel", method: "close" }
+        { text: "保存", method: "save" },
+        { text: "取消", method: "close" }
     ],
 
     folder_name: null,
@@ -73,7 +73,7 @@ var SaveQuery = Modal.extend({
             ' <input type="text" class="form-control search_file"></input><span class="cancel_search"></span></div>' +
             "<div class='RepositoryObjects'><span class='i18n'>Loading...</span></div>" +
             "<div class='form-inline' style='padding-top:4px'>"    +
-            "<label for='name' class='i18n'>File:</label>&nbsp;" +
+            "<label for='name' class='i18n'>文件:</label>&nbsp;" +
             "<input type='text' name='name' class='form-control' value='<%= name %>' /></div>" +
             "<br />"+
             "</form>")({ name: full_path });

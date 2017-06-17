@@ -21,8 +21,8 @@ var TitlesModal = Modal.extend({
     type: 'info',
 
     buttons: [
-        { text: 'Okay', method: 'okay' },
-        { text: 'Cancel', method: 'close' }
+        { text: '确定', method: 'okay' },
+        { text: '取消', method: 'close' }
     ],
 
     message: _.template("<form id='login_form'>" +

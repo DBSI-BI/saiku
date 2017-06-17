@@ -458,7 +458,7 @@ var Workspace = Backbone.View.extend({
         if (this.query) {
             if(Settings.QUERY_OVERWRITE_WARNING) {
                 (new WarningModal({
-                    title: "New Query", message: "You are about to clear your existing query",
+                    title: "新建查询", message: "您即将清除现有查询",
                     okay: this.create_new_query, okayobj: this
                 })).render().open();
             }
@@ -1091,7 +1091,7 @@ var Workspace = Backbone.View.extend({
     },
 
     cancelled: function(args) {
-        this.processing.html('<span class="processing_image">&nbsp;&nbsp;</span> <span class="i18n">Canceling Query...</span>').show();
+        this.processing.html('<span class="processing_image">&nbsp;&nbsp;</span> <span class="i18n">正在取消查询...</span>').show();
     },
 
     no_results: function(args) {

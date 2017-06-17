@@ -34,8 +34,8 @@ var OpenDialog = Modal.extend({
     },
     
     buttons: [
-        { id: "test", text: "Open", method: "open_query" },
-        { text: "Cancel", method: "close" }
+        { id: "测试", text: "Open", method: "open_query" },
+        { text: "取消", method: "close" }
     ],
 
     initialize: function(args) {
@@ -49,12 +49,12 @@ var OpenDialog = Modal.extend({
 
         this.message =  '<div class="box-search-file form-inline" style="padding-top:10px; height:35px; line-height:25px;"><label class="i18n">Search:</label> &nbsp;' +
                         ' <input type="text" class="form-control search_file"></input><span class="cancel_search"></span></div>' +
-                        "<div class='RepositoryObjects i18n'>Loading...</div>" +
+                        "<div class='RepositoryObjects i18n'>加载中...</div>" +
                         "<br>" +
-                        "<b><div class='query_name'><span class='i18n'>Please select a file.....</span></div></b><br/>";
+                        "<b><div class='query_name'><span class='i18n'>请选择一个文件.....</span></div></b><br/>";
 
         if (Settings.ALLOW_IMPORT_EXPORT) {
-            this.message += "<span class='export_zip'> </span> <b><span class='i18n'>Import or Export Files for Folder</span>: </b> <span class='i18n zip_folder'>< Select Folder... ></span>" +
+            this.message += "<span class='export_zip'> </span> <b><span class='i18n'>导入或导出文件夹的文件</span>: </b> <span class='i18n zip_folder'>< 选择文件夹... ></span>" +
                             " &nbsp; <input type='submit' value='Export' class='export_btn' disabled /><br/><br />" +
                             "<br /><form id='importForm' target='_blank' method='POST' enctype='multipart/form-data'>" +
                             "<input type='hidden' name='directory' class='directory'/>" +

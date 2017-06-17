@@ -21,8 +21,8 @@ var WarningModal = Modal.extend({
     type: 'info',
 
     buttons: [
-        { text: 'Okay', method: 'okay' },
-        { text: 'Cancel', method: 'close' }
+        { text: '确定', method: 'okay' },
+        { text: '取消', method: 'close' }
     ],
     /*message: Settings.VERSION + '<br>' +
         '<a href="http://saiku.meteorite.bi" target="_blank">http://saiku.meteorite.bi</a><br><br>' +

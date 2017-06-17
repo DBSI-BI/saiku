@@ -30,8 +30,8 @@ var CustomFilterModal = Modal.extend({
     },
 
     buttons: [
-        { text: "OK", method: "save" },
-        { text: "Cancel", method: "close" }
+        { text: "确定", method: "save" },
+        { text: "取消", method: "close" }
     ],
 
     message: "<form id='custom_filter'>" + 

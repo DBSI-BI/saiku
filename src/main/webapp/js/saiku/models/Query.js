@@ -102,10 +102,10 @@ var Query = Backbone.Model.extend({
                     errorMessage = "";
                 }
                 if (!columnsOk && !detailsOk) {
-                    errorMessage += '<span class="i18n">You need to include at least one measure or a level on columns for a valid query.</span>';
+                    errorMessage += '<span class="i18n">您需要在有效查询的列上至少包含一个指标或级别.</span>';
                 }
                 if(!rowsOk) {
-                    errorMessage += '<span class="i18n">You need to include at least one level on rows for a valid query.</span>';
+                    errorMessage += '<span class="i18n">您需要在行上至少包含一个级别以进行有效的查询.</span>';
 
                 }
                 if ( (columnsOk || detailsOk) && rowsOk) {
@@ -115,7 +115,7 @@ var Query = Backbone.Model.extend({
             } else if (exModel.type == "MDX") {
                 validated = (exModel.mdx && exModel.mdx.length > 0);
                 if (!validated) {
-                    errorMessage = '<span class="i18n">You need to enter some MDX statement to execute.</span>';
+                    errorMessage = '<span class="i18n">您需要输入一些要执行的MDX语句.</span>';
                 }
             }
         }

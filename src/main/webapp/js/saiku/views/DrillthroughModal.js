@@ -21,8 +21,8 @@ var DrillthroughModal = Modal.extend({
 	type: "drillthrough",
 
 	buttons: [
-		{ text: "Ok", method: "ok" },
-		{ text: "Cancel", method: "close" }
+		{ text: "确定", method: "ok" },
+		{ text: "取消", method: "close" }
 	],
 
 	events: {
