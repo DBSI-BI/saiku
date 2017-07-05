@@ -422,6 +422,11 @@ public class ExcelWorksheetBuilder {
     private int setRowTotalAggregationCell(Map<Integer, TotalAggregator[][]> scanTotals, int startIndex, int subIndex, boolean grandTotal) {
         if (!scanTotals.isEmpty()) {
             int row = subIndex + startIndex;
+            // Modify by huanqiang 2017-07-05 16:35:03. 修复 saiku选择 合计、平均值后 导出excel里没有这几个字 的错误
+            if (grandTotal) {
+                row -= 1;
+            }
+
             TotalAggregator[][] aggregatorsTable = scanTotals.get(row);
             if (aggregatorsTable != null) {
                 //Create totals row
@@ -431,7 +436,9 @@ public class ExcelWorksheetBuilder {
                 int startColumnIndex = detectColumnStartIndex();
 
                 if (grandTotal) {
-                    setGrandTotalLabel(sheetRow, startColumnIndex, false);
+//                    Modify by huanqiang 2017-07-05 18:36:12.
+//                    setGrandTotalLabel(sheetRow, startColumnIndex, false);
+                    setGrandTotalLabel(sheetRow, startColumnIndex, false, aggregatorsTable[0][0].getClass().getName());
                 }
 
                 for (TotalAggregator[] aggregators : aggregatorsTable) {
@@ -479,7 +486,9 @@ public class ExcelWorksheetBuilder {
             if (aggregatorsTable != null) {
                 if (setValue) {
                     if (grandTotal) {
-                        setGrandTotalLabel(sheetRow.getRowNum() - 1, column, true);
+//                    Modify by huanqiang 2017-07-05 18:36:12.
+//                        setGrandTotalLabel(sheetRow.getRowNum() - 1, column, true);
+                        setGrandTotalLabel(sheetRow.getRowNum() - 1, column, true, aggregatorsTable[0][0].getClass().getName());
                     }
                     for (TotalAggregator[] aggregators : aggregatorsTable) {
                         Cell cell = sheetRow.createCell(column);
@@ -494,22 +503,38 @@ public class ExcelWorksheetBuilder {
         return column;
     }
 
-    private void setGrandTotalLabel(int x, int y, boolean header) {
+//    Modify by huanqiang 2017-07-05 18:37:04.
+//    private void setGrandTotalLabel(int x, int y, boolean header) {
+    private void setGrandTotalLabel(int x, int y, boolean header, String className) {
         Row sheetRow = workbookSheet.getRow(x);
         if (sheetRow != null) {
-            setGrandTotalLabel(sheetRow, y, header);
+            setGrandTotalLabel(sheetRow, y, header, className);
         }
     }
 
-    private void setGrandTotalLabel(Row sheetRow, int y, boolean header) {
+//    Modify by huanqiang 2017-07-05 18:37:29.
+//    private void setGrandTotalLabel(Row sheetRow, int y, boolean header, String className) {
+    private void setGrandTotalLabel(Row sheetRow, int y, boolean header, String className) {
         Cell cell = sheetRow.createCell(y);
         //TODO i18n
-        String value = "Grand Total";
+        String value = calcuteValue(className);
         if (header) {
             fillHeaderCell(sheetRow, value, y);
         } else {
             cell.setCellValue(value);
             cell.setCellStyle(basicCS);
+        }
+    }
+
+    private String calcuteValue(String className) {
+        if (className.indexOf("AvgAggregator") > -1) {
+            return  "平均值";
+        } else if (className.indexOf("MaxAggregator") > -1) {
+            return  "最大值";
+        } else if (className.indexOf("MinAggregator") > -1) {
+            return  "最小值";
+        } else {
+            return  "总和";
         }
     }
 
