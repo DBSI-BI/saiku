@@ -7,10 +7,18 @@
     <version>1.0-SNAPSHOT</version>
     <name>saiku Maven Webapp</name>
     <url>http://maven.apache.org</url>
-    <!--<distributionManagement>&lt;!&ndash;add by liuyg &ndash;&gt;-->
+
+    <!--<distributionManagement>-->
+        <!--&lt;!&ndash;<repository>&ndash;&gt;-->
+            <!--&lt;!&ndash;<uniqueVersion>false</uniqueVersion>&ndash;&gt;-->
+            <!--&lt;!&ndash;<id>corp1</id>&ndash;&gt;-->
+            <!--&lt;!&ndash;<name>Corporate Repository</name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<url>scp://repo/maven2</url>&ndash;&gt;-->
+            <!--&lt;!&ndash;<layout>default</layout>&ndash;&gt;-->
+        <!--&lt;!&ndash;</repository>&ndash;&gt;-->
         <!--<snapshotRepository>-->
             <!--<id>snapshots-host</id>-->
-            <!--<url>http://nexus.liuyingguang.cn:8081/content/repositories/snapshots-host/</url>-->
+            <!--<url>http://10.65.1.92:8081/nexus/content/repositories/snapshots-host/</url>-->
         <!--</snapshotRepository>-->
     <!--</distributionManagement>-->
     <properties>
@@ -131,6 +139,13 @@
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
             <version>3.3.2</version>
+            <exclusions>
+            <!-- 解决 log4j-over-slf4j和slf4j-log4j12 两个jar爆冲突问题 -->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>log4j-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
@@ -822,36 +837,6 @@
             <groupId>com.cenqua.clover</groupId>
             <artifactId>clover</artifactId>
             <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>eigenbase</groupId>
-            <artifactId>eigenbase-properties</artifactId>
-            <version>1.1.4</version>
-        </dependency>
-        <dependency>
-            <groupId>eigenbase</groupId>
-            <artifactId>eigenbase-resgen</artifactId>
-            <version>1.3.5</version>
-        </dependency>
-        <dependency>
-            <groupId>eigenbase</groupId>
-            <artifactId>eigenbase-xom</artifactId>
-            <version>1.3.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.olap4j</groupId>
-            <artifactId>olap4j</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.olap4j</groupId>
-            <artifactId>olap4j-xmla</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.olap4j</groupId>
-            <artifactId>olap4j-xmlaserver</artifactId>
-            <version>1.2.0</version>
         </dependency>
 
         <dependency>

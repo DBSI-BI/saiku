@@ -41,7 +41,7 @@
         </security:headers>
 
         <security:csrf disabled="true"/>
-        <security:intercept-url pattern="/serverdocs/**" access="isAnonymous()"/>
+        <!--<security:intercept-url pattern="/serverdocs/**" access="isAnonymous()"/>-->
         <security:intercept-url pattern="/rest/saiku/session*" access="isAnonymous() or isFullyAuthenticated()"/>
         <security:intercept-url pattern="/rest/saiku/session/" access="isAnonymous() or isFullyAuthenticated()"/>
 
