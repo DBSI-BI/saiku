@@ -255,8 +255,8 @@ var Workspace = Backbone.View.extend({
                 })
                 .click(Saiku.AdminConsole.show_admin)
                 .addClass('button admin_console');
-            $(this.el).find('.refresh_cubes_nav').css('margin-right', '40px');
-            $(this.el).find('.admin_console_nav').append($link);
+            // $(this.el).find('.refresh_cubes_nav').css('margin-right', '40px');
+            // $(this.el).find('.admin_console_nav').append($link);
         }
         
         if (!Saiku.session.isAdmin) {
