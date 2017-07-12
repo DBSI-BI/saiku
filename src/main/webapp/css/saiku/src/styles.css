@@ -2370,9 +2370,9 @@ span.cancel_search:hover {
 
 .canvas_wrapper a.button {
     display: block;
-    height: 16px;
+    height: 32px;
     padding: 8px;
-    width: 16px;
+    width: 32px;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
