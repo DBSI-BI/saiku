@@ -3,7 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Saiku Embedded - Next Generation Open Source Analytics in your App!</title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <!--<link rel="shortcut icon" href="favicon.ico">-->
+    <link rel="icon" type="image/png" href="edu_logo.png" />
 
     <style>
         body {
@@ -30,7 +31,7 @@
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/def.js"></script>
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/protovis.js"></script>
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/protovis-msie.js"></script>
-<script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/cdo.js"></script>
+<!--<script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/cdo.js"></script>-->
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/pvc.js"></script>
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/jquery.tipsy.js"></script>
 <script type="text/javascript" src="../js/saiku/plugins/CCC_Chart/tipsy.js"></script>
@@ -61,18 +62,19 @@
     });
 
     myClient.execute({
-        file: "Examples/pie.saiku",
+        file: "/datasources/sss.saiku",
         htmlObject: "#saiku",
         render: "table",
+        mode: "sparkbar",
         params: {
             family: "testparameter"
         }
     });
     myClient.execute({
-        file: "Examples/Heatgrid.saiku",
+        file: "/datasources/前十.saiku",
         htmlObject: "#saiku2",
         render: "chart",
-        mode: "heatgrid",
+        mode: "line",
         chartDefinition: {
             width: 900,
             colors: ['grey', 'red', 'blue'],

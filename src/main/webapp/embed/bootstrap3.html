@@ -147,16 +147,16 @@
     });
 
     myClient.execute({
-        file: "Examples/ConditionalFormattingExample2.saiku",
+        file: "/datasources/sss.saiku",
         htmlObject: "#saiku3",
         render: "table"
     });
 
     myClient.execute({
-        file: "Examples/Heatgrid.saiku",
+        file: "/datasources/sss.saiku",
         htmlObject: "#saiku2",
         render: "chart",
-        mode: "heatgrid",
+        mode: "line",
         zoom: false,
         chartDefinition: {
             clickable: true,
@@ -169,7 +169,7 @@
     });
 
     myClient.execute({
-        file: "Examples/pie.saiku",
+        file: "/datasources/sss.saiku",
         htmlObject: "#saiku",
         render: "chart",
         mode: "stackedBar",
