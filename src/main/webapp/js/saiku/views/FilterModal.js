@@ -40,9 +40,9 @@ var FilterModal = Modal.extend({
         var c = "<div class='sidebar'><table" +
         " border='0px'>";
         if (this.expressionType == "Order") {
-            c += "<tr><td class='col1'><label>Sort Type</label> <select class='form-control' id='fun'><option>ASC</option><option>BASC</option><option>DESC</option><option>BDESC</option> </select></td></tr>";
+            c += "<tr><td class='col1'><label>排序类型</label> <select class='form-control' id='fun'><option>ASC</option><option>BASC</option><option>DESC</option><option>BDESC</option> </select></td></tr>";
         }
-        c += "<tr><td class='col1'>" + this.expressionType + " MDX 表达:</td></tr>" +
+        c += "<tr><td class='col1'>" + this.expressionType + " MDX 表达式:</td></tr>" +
              "<tr><td class='col1' style='width:380px'><div class='filter-editor' style='width:380px' id='"+this.id+"'></div></td></tr>" +
              "</table>" +
             "<a href='#' class='form_button btn btn-default insert-member'>插入成员</a></div>";
@@ -153,7 +153,7 @@ var FilterModal = Modal.extend({
                 }
             })).render().open();
 
-            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('Custom Filter');
+            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('自定义过滤');
 
 
     },

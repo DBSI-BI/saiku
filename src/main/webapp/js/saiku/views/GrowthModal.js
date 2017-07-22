@@ -48,19 +48,19 @@ var GrowthModal = Modal.extend({
 		"<form id='measureGrowthForm'>" +
 		"<table border='0px'>" +
 		"<tr><td class='col0 i18n'>名字:</td>" +
-		"<td class='col1'><input type='text' class='form-control measure_name' value='设定方法名'></input></td></tr>" +
+		"<td class='col1'><input type='text' class='form-control measure_name' value='方法名'></input></td></tr>" +
 
-		'<input type="checkbox" name="asPercent" value="asPercent" id="asPercentCheckbox"> Relative %? <br>' +
+		'<input type="checkbox" name="asPercent" value="asPercent" id="asPercentCheckbox"> 计算相对于指标的百分比? <br>' +
 		'<% if(dimensions.length<2){ %>'+
-		'<input type="checkbox" name="asPercentAlt" disabled value="asPercentAlt" id="asPercentAltCheckbox"> % of Measure<br>' +
+		'<input type="checkbox" name="asPercentAlt" disabled value="asPercentAlt" id="asPercentAltCheckbox"> 指标的百分比<br>' +
 		'<% }  else {%>'+
-		'<input type="checkbox" name="asPercentAlt" value="asPercentAlt" id="asPercentAltCheckbox"> % of Measure<br>' +
+		'<input type="checkbox" name="asPercentAlt" value="asPercentAlt" id="asPercentAltCheckbox"> 指标的百分比<br>' +
 		'<% }%>'+
-		'<input type="checkbox" name="asPercentAround100" value="asPercentAround100" id="asPercentAround100Checkbox"> Relative around 100%? <br>' +
+		'<input type="checkbox" name="asPercentAround100" value="asPercentAround100" id="asPercentAround100Checkbox"> 计算相对于指标的百分比*100%? <br>' +
 
 		"<tr><td class='col0 i18n'>指标:</td>" +
 		"<td class='col1'>" +
-		"<select id='Measures' class='form-control' name='MeasuresId' title='Select the measure from which the difference should be calculated'> " +
+		"<select id='Measures' class='form-control' name='MeasuresId' title='选择应计算差值的指标'> " +
 		"    <option value='' selected='selected'>--选择一个已存在的指标--</option> " +
 		"    <% _(measures).each(function(m) { %> " +
 		"      <option value='<%= m.uniqueName %>'><%= m.name %></option> " +
@@ -70,7 +70,7 @@ var GrowthModal = Modal.extend({
 
 		"<tr><td class='col0 i18n'>维度:</td>" +
 		"<td class='col1'>" +
-		"<select id='Dimensions' name='DimensionsId' class='form-control' title='This dimension attribute is used to calculate the difference of the selected measure. E.g. Calculate the growth over the years.'> " +
+		"<select id='Dimensions' name='DimensionsId' class='form-control' title='此维度属性用于计算所选度量的差异。例如。计算多年来的增长.'> " +
 		"    <option value='' selected='selected'>--从查询中选择维度--</option> " +/*select a dimension from your query*/
 		"    <% _(dimensions).each(function(dim) { %> " +
 		"      <option value='<%= dim %>'><%= dim %></option> " +
@@ -123,10 +123,10 @@ var GrowthModal = Modal.extend({
 
 		var alert_msg = "";
 		if (typeof measure_name == "undefined" || !measure_name) {
-			alert_msg += "You have to enter a name for the measure! ";
+			alert_msg += "你必须给指标添加一个名字! ";
 		}
 		if (typeof measure_formula == "undefined" || !measure_formula || measure_formula === "") {
-			alert_msg += "You have to enter a MDX formula for the calculated measure! ";
+			alert_msg += "你必须给计算指标添加一个MDX表达式! ";
 		}
 		if (alert_msg !== "") {
 			alert(alert_msg);

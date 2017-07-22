@@ -52,7 +52,7 @@ var CalculatedMemberModal = Modal.extend({
     template_modal: _.template(
         '<div class="cms-container-group">' +
             '<div class="calculated-measure-group">' +
-                '<h4 class="i18n">计算指标:</h4>' +/*Calculated Measures*/
+                '<h4 class="i18n">计算指标组:</h4>' +/*Calculated Measures*/
                 '<div class="cms-box">' +
                     '<table class="cms-list measures-list">' +
                         '<%= tplCalculatedMeasures %>' +
@@ -75,7 +75,7 @@ var CalculatedMemberModal = Modal.extend({
                 '<div class="cms-measure form-inline" style="padding-bottom:10px;">' +
                 '<label for="cms-measure" class="i18n">插入成员:</label>' +/*Insert Member*/
                 ' <input type="button" class="form-control btn-primary btn btn-select-member"' +
-                ' value="选择成员" title="Insert a member into the formula editor "   ' +
+                ' value="选择成员" title="将成员插入公式编辑器."   ' +
                 'id="insertmember"> </input> </div>' +
                 '<label for="<%= idEditor %>" class="i18n">公式:</label>' +/*Formula*/
                 '<div class="formula-editor" style="padding-bottom:10px" id="<%= idEditor %>"></div>' +
@@ -102,16 +102,16 @@ var CalculatedMemberModal = Modal.extend({
                     '<div class="form-inline"><select class="cms-functionlist form-control"><option' +
                     ' value="">---插入 MDX 方法---' +
                     '</select>&nbsp; <a href="" class="cms-doclink" target="_blank" style="display:' +
-                    ' none;">Documentation</a><br/></div>'+
+                    ' none;">相关文档</a><br/></div>'+
                     '</div>' +
 				    '<div class="cms-function">' +
 					'<label for="cms-function" class="i18n">功能:</label>' +/*Functions Predefined Calculations*/
 					' <input type="button" class="form_button btn btn-primary growthBtn"#'+
                     ' value="预定义计算"  ' +
-					'         title="Calculate difference. Good to calculate previous period growth "   id="growthBtn" >  </input> ' +
+					'         title="计算差异，计算上一期的增长. "   id="growthBtn" >  </input> ' +
 					' <input type="button" class="form_button btn btn-primary formatBtn"' +
-                    ' value="格式 %" id="formatBtn"  ' +
-					'title="Post-process step: format this view as percentage of rows, columns or grand total. " />' +
+                    ' value="格式化为百分比" id="formatBtn"  ' +
+					'title="后处理步骤：将此视图格式化为行，列或总计的百分比. " />' +
 				'</div><br/>' +
                 '<div style="padding-bottom:10px;"><label for="cms-dimension" class="i18n">维度:</label>' +/*Dimension*/
                 '<select id="cms-dimension" class="form-control" style="width:365px">' +
@@ -424,12 +424,12 @@ var CalculatedMemberModal = Modal.extend({
     show_del_cms: function(event) {
         event.preventDefault();
         var $currentTarget = $(event.currentTarget);
-        var cmsType = $currentTarget.data('type') === 'calcmeasure' ? '<span class="i18n">measure</span>' : '<span class="i18n">member</span>';
+        var cmsType = $currentTarget.data('type') === 'calcmeasure' ? '<span class="i18n">指标</span>' : '<span class="i18n">member</span>';
         this.$delcms = $currentTarget;
         this.new();
         (new WarningModal({
-            title: '<span class="i18n">Delete Member</span>',
-            message: '<span class="i18n">You want to delete this</span> ' + cmsType + ' <b>' + $currentTarget.data('name') + '</b>?',
+            title: '<span class="i18n">删除成员</span>',
+            message: '<span class="i18n">你想删除</span> '+ cmsType +' <b>'+ $currentTarget.data('name') +'</b>?',
             okay: this.del_cms,
             okayobj: this
         })).render().open();
@@ -483,19 +483,19 @@ var CalculatedMemberModal = Modal.extend({
 
         if (dimensionDataType === 'calcmeasure') {
             if (this.check_name_cms(dimensionDataType, name) && formAction === 'cad') {
-                alertMsg = 'Exists a measure with the same name added!';
+                alertMsg = '存在相同名称的指标!';
                 // this.$el.find('#cms-name').focus();
             }
         }
         else if (dimensionDataType === 'calcmember') {
             if (this.check_name_cms(dimensionDataType, name) && formAction === 'cad') {
-                alertMsg = 'Exists a member with the same name added!';
+                alertMsg = '存在相同名称的成员!';
                 // this.$el.find('#cms-name').focus();
             }
         }
         else {
             if (this.check_name_cms(dimensionDataType, name) && formAction === 'cad') {
-                alertMsg = 'Exists a measure or member with the same name added!';
+                alertMsg = '存在相同名称的指标或者成员!';
                 // this.$el.find('#cms-name').focus();
             }
         }
@@ -756,7 +756,7 @@ var CalculatedMemberModal = Modal.extend({
                 breadcrumbs: this.pmBreadcrumbs
             })).render().open();
 
-            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('Connection Details');
+            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('计算成员');
         }
     },
 
@@ -870,6 +870,30 @@ var CalculatedMemberModal = Modal.extend({
     },
 
     /**
+     * 'Insert a formula with an ISEMPTY check to ensure that only non null cells are calculated'
+     * 'Returns a number that is calculated by aggregating over the cells returned by the set expression'
+     * Evaluates a set and returns the average of the non empty values of the cells in the set, averaged over the measures in the set or over a specified measure
+     * A function that returns the ancestor of a specified member at a specified level or at a specified distance from the member
+     * Returns the member that is the last sibling among the descendants of a specified member at a specified level
+     * Returns the child member with the same relative position under a parent member as the specified child member
+     * Returns the current member along a specified hierarchy during iteration
+     * Returns the first child of a specified member
+     * Returns the first child of the parent of a member
+     * Evaluates different branch expressions depending on whether a Boolean condition is true or false
+     * Returns the last child of a specified member
+     * Returns the last child of the parent of a specified member
+     * Returns the maximum value of a numeric expression that is evaluated over a set
+     * Returns the median value of a numeric expression that is evaluated over a set
+     * Returns the minimum value of a numeric expression that is evaluated over a set
+     * Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Year level in the Time dimension
+     * Returns the first sibling among the descendants of a specified level, optionally at a specified member
+     * Returns a member from a prior period in the same relative position as a specified member
+     * Returns the parent of a member
+     * Returns the previous member in the level that contains a specified member
+     * Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Quarter level in the Time dimension
+     * Returns the sum of a numeric expression evaluated over a specified set
+     * Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Year level in the Time dimension
+     * Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Week level in the Time dimension
      * Populate the MDX function select box with useful MDX constructs.
      * @param event
      */
@@ -878,77 +902,76 @@ var CalculatedMemberModal = Modal.extend({
         var functions = [
             {name: 'Formula Not Empty Check', example:'Iif(NOT' +
             ' ISEMPTY([Measures].[My Measure]),([Measures].[My Measure] + [Numeric Expression]),null))',
-                description: 'Insert a formula with an ISEMPTY check to ensure that only non null cells are' +
-                ' calculated',
+                description: '使用ISEMPTY检查插入公式，以确保只计算非空单元格.',
                 doc_link:'http://wiki.meteorite.bi/display/SAIK/Non+Empty+Calculated+Members'},
             {name: 'Aggregate', example:'Aggregate(Set_Expression [ ,Numeric_Expression ])',
-                description:'Returns a number that is calculated by aggregating over the cells returned by the set expression.',
+                description:'返回经过聚合由set表达式返回的单元格计算的数字.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145524.aspx'},
             {name: 'Avg', example:'Avg( Set_Expression [ , Numeric_Expression ] )',
-                description:'Evaluates a set and returns the average of the non empty values of the cells in the set, averaged over the measures in the set or over a specified measure.',
+                description:'计算一组集合并返回非空单元格的平均值，该集合中的单元格可能超过指定度量.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms146067.aspx'},
             {name: 'Ancestor', example:'Ancestor(Member_Expression, Distance)',
-                description:'A function that returns the ancestor of a specified member at a specified level or at a specified distance from the member.',
+                description:'返回指定成员祖先的指定级别或与成员的指定距离.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145616.aspx'},
             {name: 'ClosingPeriod', example:'ClosingPeriod( [ Level_Expression [ ,Member_Expression ] ] )',
-                description:'Returns the member that is the last sibling among the descendants of a specified member at a specified level.',
+                description:'返回在指定级别的指定成员的后代中最后一个兄弟的成员.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145584.aspx'},
             {name: 'Cousin', example:'Cousin( Member_Expression , Ancestor_Member_Expression )',
-                description:'Returns the child member with the same relative position under a parent member as the specified child member.',
+                description:'返回与父成员相同的相对位置的子成员作为指定的子成员.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145481.aspx'},
             {name: 'CurrentMember', example:'Hierarchy_Expression.CurrentMember',
-                description:'Returns the current member along a specified hierarchy during iteration.',
+                description:'在迭代期间返回沿指定层次结构的当前成员.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144948.aspx'},
             {name: 'FirstChild', example:'Member_Expression.FirstChild',
-                description:'Returns the first child of a specified member.',
+                description:'返回指定成员的第一个子节点.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144947.aspx'},
             {name: 'FirstSibling', example:'Member_Expression.FirstSibling',
-                description:'Returns the first child of the parent of a member.',
+                description:'返回成员父项的第一个子节点.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145956.aspx'},
             {name: 'IIf', example:'IIf(Logical_Expression, Expression1, Expression2)',
-                description:'Evaluates different branch expressions depending on whether a Boolean condition is true or false.',
+                description:'根据布尔条件是真还是假来评估不同的分支表达式.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145994.aspx'},
             {name: 'LastChild', example:'Member_Expression.LastChild',
-                description:'Returns the last child of a specified member.',
+                description:'返回指定成员的最后一个子节点.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145576.aspx'},
             {name: 'LastSibling', example:'Member_Expression.LastSibling',
-                description:'Returns the last child of the parent of a specified member.',
+                description:'返回成员父项的最后一个子节点.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144863.aspx'},
             {name: 'Max', example:'Max( Set_Expression [ , Numeric_Expression ] )',
-                description:'Returns the maximum value of a numeric expression that is evaluated over a set.',
+                description:'返回在集合上求值的数值表达式的最大值.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145601.aspx'},
             {name: 'Median', example:'Median(Set_Expression [ ,Numeric_Expression ] )',
-                description:'Returns the median value of a numeric expression that is evaluated over a set.',
+                description:'返回在集合上求值的数值表达式的中间值.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145570.aspx'},
             {name: 'Min', example:'Min( Set_Expression [ , Numeric_Expression ] )',
-                description:'Returns the minimum value of a numeric expression that is evaluated over a set.',
+                description:'返回在集合上求值的数值表达式的最小值.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145600.aspx'},
             {name: 'MTD', example:'Mtd( [ Member_Expression ] )',
-                description:'Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Year level in the Time dimension.',
+                description:'返回与给定成员相同级别的一组兄弟成员，从第一个兄弟节点开始，以给定成员结尾，受时间维度中的年级限制.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144753.aspx'},
             {name: 'OpeningPeriod', example:'OpeningPeriod( [ Level_Expression [ , Member_Expression ] ] )',
-                description:'Returns the first sibling among the descendants of a specified level, optionally at a specified member.',
+                description:'返回指定级别的后代中的第一个兄弟，指定成员是可选的.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145992.aspx'},
             {name: 'ParallelPeriod', example:'ParallelPeriod( [ Level_Expression [ ,Index [ , Member_Expression ] ] ] )',
-                description:'Returns a member from a prior period in the same relative position as a specified member.',
+                description:'从前一个时间段返回与指定成员相同的相对位置的成员.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145500.aspx'},
             {name: 'Parent', example:'Member_Expression.Parent',
-                description:'Returns the parent of a member.',
+                description:'返回成员的父亲.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145513.aspx'},
             {name: 'PrevMember', example:'Member_Expression.PrevMember',
-                description:'Returns the previous member in the level that contains a specified member.',
+                description:'返回包含指定成员的级别中的上一个成员.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144719.aspx'},
             {name: 'QTD', example:'Qtd( [ Member_Expression ] )',
-                description:'Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Quarter level in the Time dimension.',
+                description:'返回与给定成员相同级别的一组兄弟成员，从第一个兄弟节点开始，以给定成员结尾，受时间维度中的季度级别的约束.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145978.aspx'},
             {name: 'Sum', example:'Sum( Set_Expression [ , Numeric_Expression ] )',
-                description:'Returns the sum of a numeric expression evaluated over a specified set.',
+                description:'返回在指定集合上求值的数值表达式的和.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms145484.aspx'},
             {name: 'WTD', example:'Wtd( [ Member_Expression ] )',
-                description:'Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Week level in the Time dimension.',
+                description:'返回与给定成员相同级别的一组兄弟成员，从第一个兄弟节点开始，以给定成员结尾，受时间维度中的周级别限制.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms144930.aspx'},
             {name: 'YTD', example:'Ytd( [ Member_Expression ] )',
-                description:'Returns a set of sibling members from the same level as a given member, starting with the first sibling and ending with the given member, as constrained by the Year level in the Time dimension.',
+                description:'返回与给定成员相同级别的一组兄弟成员，从第一个兄弟节点开始，以给定成员结尾，受时间维度中的年级别限制.',
                 doc_link:'https://msdn.microsoft.com/en-us/library/ms146039.aspx'}
 
         ]
@@ -1022,7 +1045,7 @@ var CalculatedMemberModal = Modal.extend({
                 }
             })).render().open();
 
-            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('Connection Details');
+            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('计算成员');
         }
         else if (dimension.dataType === 'calcmember') {
             (new ParentMemberSelectorModal({
@@ -1039,7 +1062,7 @@ var CalculatedMemberModal = Modal.extend({
                 breadcrumbs: this.pmBreadcrumbs
             })).render().open();
 
-            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('Connection Details');
+            this.$el.parents('.ui-dialog').find('.ui-dialog-title').text('计算成员');
         }
 
     },

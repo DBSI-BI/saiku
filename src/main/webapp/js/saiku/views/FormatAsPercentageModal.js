@@ -89,17 +89,17 @@ var FormatAsPercentageModal = Modal.extend({
 		var self = this;
 		var measure_name = $(this.el).find('.measure_name').val();
 		if (measure_name == null || measure_name == "") {
-			measure_name = measureName + ' % of ' + percentOver;
+			measure_name = measureName + ' 占 ' + percentOver + " 百分比";
 		}
 		var measure_formula = measureExpression;
 		var measure_format = '0.00%';
 
 		var alert_msg = "";
 		if (typeof measure_name == "undefined" || !measure_name) {
-			alert_msg += "You have to enter a name for the measure! ";
+			alert_msg += "你必须给指标命名! ";
 		}
 		if (typeof measure_formula == "undefined" || !measure_formula || measure_formula === "") {
-			alert_msg += "You have to enter a MDX formula for the calculated measure! ";
+			alert_msg += "你必须给计算指标输入一个MDX表达式! ";
 		}
 		if (alert_msg !== "") {
 			alert(alert_msg);

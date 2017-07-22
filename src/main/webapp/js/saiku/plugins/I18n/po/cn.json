@@ -141,5 +141,6 @@
   "Filter Limit":"过滤限制",
   "Parameter Name":"参数名称",
   "Pre-Filter on Server":"预先过滤服务器",
-  "Clear Filter":"清除过滤器"
+  "Clear Filter":"清除过滤器",
+  "Connection Details":"关系信息"
 }

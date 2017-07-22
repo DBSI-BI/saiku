@@ -208,7 +208,7 @@ public class BasicRepositoryResource2 implements ISaikuRepository {
 
 	byte[] data = new byte[0];
 	try {
-	  data = datasourceService.getFileData(file, username, roles).getBytes("UTF-8");
+		  data = datasourceService.getFileData(file, username, roles).getBytes("UTF-8");
 	} catch (UnsupportedEncodingException e) {
 	  log.error("Error reading file encoding",e);
 	}

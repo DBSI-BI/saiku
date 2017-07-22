@@ -36,8 +36,8 @@ var CustomFilterModal = Modal.extend({
 
     message: "<form id='custom_filter'>" + 
                      "<table border='0px'>" + 
-                     "<tr><td class='col0'>Define Filter" +
-                     "<select class='form-control function'><option>Select a Function...</option>" +
+                     "<tr><td class='col0'>定义过滤器" +
+                     "<select class='form-control function'><option>请选择一个方法</option>" +
                      "<option value='TopCount'>TopCount</option>" +
                         "<option value='TopPercent'>TopPercent</option><option value='TopSum'>TopSum</option>" + 
                         "<option value='BottomCount'>BottomCount</option><option value='BottomPercent'>BottomPercent</option>" + 
@@ -72,7 +72,7 @@ var CustomFilterModal = Modal.extend({
         this.measure_list = this.build_measures_list();
 
         _.extend(this.options, {
-            title: "Custom Filter for " + this.axis
+            title: " 给 " + this.axis +" 定义一个过滤器"
         });
 
         this.bind( 'open', function( ) {
@@ -149,10 +149,10 @@ var CustomFilterModal = Modal.extend({
 
         var alert_msg = "";
         if (typeof this.n == "undefined" || !this.n) {
-            alert_msg += "You have to enter a numeric for N! ";
+            alert_msg += "你必须给N赋值! ";
         }
         if (typeof this.sortliteral == "undefined" || !this.sortliteral || this.sortliteral === "") {
-            alert_msg += "You have to enter a MDX expression for the sort literal! ";
+            alert_msg += "您必须输入排序文字的MDX表达式! ";
         }
         if (alert_msg !== "") {
             alert(alert_msg);

@@ -93,7 +93,7 @@ public class QueryDeserializer {
 
   public SaikuCube getFakeCube( String xml ) throws Exception {
     SAXBuilder parser = new SAXBuilder();
-    InputSource source = new InputSource( ( new ByteArrayInputStream( xml.getBytes() ) ) );
+    InputSource source = new InputSource( ( new ByteArrayInputStream( xml.getBytes("UTF8") ) ) );
     Document dom = parser.build( source );
 
     Element queryElement = dom.getRootElement();

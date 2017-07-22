@@ -171,7 +171,7 @@ public class QueryResource {
 				file = formParams.containsKey("file") ? formParams.getFirst("file") : null;
 				if (StringUtils.isNotBlank(file)) {
 					Response f = repository.getResource(file);
-					xml = new String( (byte[]) f.getEntity());
+					xml = new String( (byte[]) f.getEntity(),"UTF8");
 				}
 			} else {
 				xml = xmlOld;
