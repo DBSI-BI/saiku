@@ -45,8 +45,9 @@
         <security:intercept-url pattern="/rest/saiku/session*" access="isAnonymous() or isFullyAuthenticated()"/>
         <security:intercept-url pattern="/rest/saiku/session/" access="isAnonymous() or isFullyAuthenticated()"/>
 
-        <security:intercept-url pattern="/rest/**" access="isFullyAuthenticated()"/>
-        <security:intercept-url pattern="/json/**" access="isFullyAuthenticated()"/>
+        <!-- modified by gsm-->
+        <security:intercept-url pattern="/rest/**" access="isFullyAuthenticated() or isAnonymous()"/>
+        <security:intercept-url pattern="/json/**" access="isFullyAuthenticated() or isAnonymous()"/>
         <security:intercept-url pattern="/WEB-INF/classes/legacy-schema" access="isAnonymous()"/>
         <security:logout logout-url="/logout"/>
         <security:http-basic/>

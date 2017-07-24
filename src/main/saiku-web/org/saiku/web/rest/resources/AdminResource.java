@@ -102,9 +102,9 @@ public class AdminResource {
     @Path("/datasources")
     @ReturnType("java.lang.List<SaikuDatasource>")
     public Response getAvailableDataSources() {
-        if(!userService.isAdmin()){
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
+//        if(!userService.isAdmin()){
+//            return Response.status(Response.Status.FORBIDDEN).build();
+//        }
         List<DataSourceMapper> l = new ArrayList<>();
         try {
             for (SaikuDatasource d : datasourceService.getDatasources().values()) {
@@ -182,9 +182,9 @@ public class AdminResource {
     @Path("/datasources")
     @ReturnType("org.saiku.web.rest.objects.DataSourceMapper")
     public Response createDatasource(DataSourceMapper json) {
-        if(!userService.isAdmin()){
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
+//        if(!userService.isAdmin()){
+//            return Response.status(Response.Status.FORBIDDEN).build();
+//        }
 
         try {
             datasourceService.addDatasource(json.toSaikuDataSource(), false);
@@ -281,9 +281,9 @@ public class AdminResource {
     @ReturnType("java.util.List<MondrianSchema>")
     public Response uploadSchema(@FormDataParam("file") InputStream is, @FormDataParam("file") FormDataContentDisposition detail,
                                  @FormDataParam("name") String name, @PathParam("id") String id) {
-        if(!userService.isAdmin()){
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
+//        if(!userService.isAdmin()){
+//            return Response.status(Response.Status.FORBIDDEN).build();
+//        }
         String path = "/datasources/" + name + ".xml";
         String schema = getStringFromInputStream(is);
         try {

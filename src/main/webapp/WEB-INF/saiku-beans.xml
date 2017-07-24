@@ -55,6 +55,8 @@
     <bean id="sessionService" class="org.saiku.web.service.SessionService">
         <property name="authenticationManager" ref="authenticationManager"/>
         <property name="authorisationPredicate" ref="authorisationPredicate"/>
+        <!-- modified by gsm-->
+        <property name="allowAnonymous" value="true" />
     </bean>
 
     <bean id="securityContextPersistenceFilter"
