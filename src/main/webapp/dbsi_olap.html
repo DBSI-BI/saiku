@@ -46,7 +46,7 @@
 <script type="text/javascript" src="js/saiku/render/SaikuChartRenderer.js"></script>
 <script type="text/javascript" src="js/saiku/embed/SaikuEmbed.js"></script>
 
-<div id='saiku' class='workspace_results' style="float:left;">
+<div id='saiku' class='workspace_results' style="float:left;width: 100%; height: 100%;">
 </div>
 
 
@@ -54,18 +54,30 @@
 
     var hrefString = String(window.document.location.href);
 
+//    var saikuHtml = document.getElementById("saiku");
+//    saikuHtml.style.width = getQueryString("width") + "px";
+//    saikuHtml.style.height = getQueryString("height") + "px";
+
+    // 获取路由参数
+    function getQueryString(str){
+        var rs = new RegExp("(^|)"+str+"=([^&]*)(&|$)","gi").exec(hrefString), tmp;
+        if(tmp = rs) return tmp[2];
+        return "";
+    }
+
     var myClient = new SaikuClient({
         server: "/saiku",
         path: "/rest/saiku/embed",
         user: "admin",
-        password: "admin"
+        password: "admin",
+        blockUI: true
     });
 
     myClient.execute({
         file: getQueryString("file"),
         htmlObject: "#saiku",
-//        render: GetQueryString("render"),
-//        mode: GetQueryString("mode"),
+        render: getQueryString("render"),
+        mode: getQueryString("mode"),
 //        chartDefinition: {
 //            width: 900,
 //            colors: ['grey', 'red', 'blue'],
@@ -76,17 +88,6 @@
 //        },
         zoom: true
     });
-
-    var saikuHtml = document.getElementById("saiku");
-    saikuHtml.style.width = getQueryString("width") + "px";
-    saikuHtml.style.height = getQueryString("height") + "px";
-
-    // 获取路由参数
-    function getQueryString(str){
-        var rs = new RegExp("(^|)"+str+"=([^&]*)(&|$)","gi").exec(hrefString), tmp;
-        if(tmp = rs) return tmp[2];
-        return "";
-    }
 
 </script>
 </body>
