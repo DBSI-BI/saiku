@@ -115,7 +115,8 @@
   "FILTER": "过滤",
   "Limit": "限制",
   "Sort": "排序",
-  "Grand totals": "总计",
+  "Grand totals": "统计",
+  "Grand  Total":"统计",
   "None": "无",
   "Sum": "总和",
   "Min": "最小值",
@@ -142,5 +143,6 @@
   "Parameter Name":"参数名称",
   "Pre-Filter on Server":"预先过滤服务器",
   "Clear Filter":"清除过滤器",
-  "Connection Details":"关系信息"
+  "Connection Details":"关系信息",
+  "Items":"成员总数"
 }

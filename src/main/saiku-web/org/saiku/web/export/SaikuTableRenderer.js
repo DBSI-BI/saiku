@@ -135,7 +135,7 @@ function genTotalHeaderCells(currentIndex, bottom, scanSums, scanIndexes, lists,
                         if (currentListNode.captions)
                             text += "&nbsp;";
                         else text = "";
-                        text += (wrapContent ? "<span class='i18n'>Grand Total</span>" :  "Grand Total");
+                        text += (wrapContent ? "<span class='i18n'>统计</span>" :  "Grand Total");
                     }
                 }
                 contents += '<th class="' + cssClass + '">'
@@ -198,7 +198,7 @@ function genTotalHeaderRowCells(currentIndex, scanSums, scanIndexes, totalsLists
                             if (colLists[i][colScanIndexes[i]].captions)
                                 text += "&nbsp;";
                             else text = "";
-                            text += (wrapContent ? "<span class='i18n'>Grand Total</span>" :  "Grand Total");
+                            text += (wrapContent ? "<span class='i18n'>统计</span>" :  "Grand Total");
                         }
                     }
                     contents += '<th class="' + cssClass + '">'

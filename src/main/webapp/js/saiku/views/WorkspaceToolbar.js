@@ -412,7 +412,7 @@ var WorkspaceToolbar = Backbone.View.extend({
 		 var pos = $target.attr('rel');
 		 (new DrillAcrossModal({
 		 workspace: this.workspace,
-			 title: "Drill Across",
+			 title: "横向下钻",//Drill Across
 			 action: "export",
 			 position: pos,
 			 query: this.workspace.query
@@ -426,7 +426,7 @@ var WorkspaceToolbar = Backbone.View.extend({
         (new DrillthroughModal({
             workspace: this.workspace,
             maxrows: 10000,
-            title: "Drill-Through to CSV",
+            title: "导出下钻数据（CSV）文件",  //Drill-Through to CSV
             action: "export",
             position: pos,
             query: this.workspace.query
@@ -441,7 +441,7 @@ var WorkspaceToolbar = Backbone.View.extend({
         (new DrillthroughModal({
             workspace: this.workspace,
             maxrows: 200,
-            title: "Drill-Through",
+            title: "下钻",//Drill-Through
             action: "table",
             success: this.display_drillthrough,
             position: pos,
