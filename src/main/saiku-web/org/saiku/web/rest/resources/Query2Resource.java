@@ -20,6 +20,7 @@ import org.saiku.olap.dto.resultset.CellDataSet;
 import org.saiku.olap.query2.ThinQuery;
 import org.saiku.olap.util.SaikuProperties;
 import org.saiku.service.olap.ThinQueryService;
+import org.saiku.service.util.HttpConnectDeal;
 import org.saiku.service.util.exception.SaikuServiceException;
 import org.saiku.web.export.JSConverter;
 import org.saiku.web.export.PdfReport;
@@ -42,10 +43,7 @@ import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.ws.rs.*;
@@ -194,6 +192,9 @@ public class Query2Resource {
             QueryResult qr = RestUtil.convert(thinQueryService.execute(tq));
             ThinQuery tqAfter = thinQueryService.getContext(tq.getName()).getOlapQuery();
             qr.setQuery(tqAfter);
+            Map<String,String> map = new HashMap<>();
+            map.put("mdx",tq.getMdx());
+            HttpConnectDeal.post("http://10.1.18.205:8080/DBSI_BI/add/mdx",map);
             return qr;
         }
         catch (Exception e) {
