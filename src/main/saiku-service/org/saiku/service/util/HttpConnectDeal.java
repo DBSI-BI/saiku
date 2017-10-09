@@ -57,6 +57,8 @@ public class HttpConnectDeal {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            httpget.releaseConnection();
         }
         return content;
     }
@@ -100,6 +102,8 @@ public class HttpConnectDeal {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            httpPost.releaseConnection();
         }
         return content;
     }
@@ -156,6 +160,8 @@ public class HttpConnectDeal {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            httpPost.releaseConnection();
         }
         return content;
     }
